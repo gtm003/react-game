@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   viewBox="0 0 8.4666667 8.4666667"
+   version="1.1"
+   id="svg8"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="4.svg">
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient3523"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3521" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient864"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop862" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.6568542"
+     inkscape:cx="20.068614"
+     inkscape:cy="18.665202"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1500"
+     inkscape:window-height="860"
+     inkscape:window-x="78"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.975;fill:#ccdde4;fill-opacity:1;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.980392;image-rendering:auto"
+       id="rect1510"
+       width="7.9375"
+       height="7.9375"
+       x="0.26458335"
+       y="0.26458335"
+       rx="0.79374999"
+       ry="0.79374999" />
+    <g
+       aria-label="D"
+       id="text3533"
+       style="font-style:normal;font-weight:normal;font-size:7.76111px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583">
+      <path
+         d="m 6.85195,4.2049113 q 0,1.0648788 -0.6063367,1.8417477 -0.6593912,0.8450818 -1.6901636,0.8450818 -0.1970594,0 -0.5949679,-0.015158 -0.3941189,-0.015158 -0.5911783,-0.015158 -0.1781114,0 -0.5381238,0.015158 -0.3562228,0.015158 -0.5343342,0.015158 -0.09474,0 -0.09474,-0.09474 0,-0.4130669 0.030317,-1.2467799 0.034106,-0.8337129 0.034106,-1.2505694 0,-0.4395941 -0.030317,-1.322572 -0.030317,-0.8829778 -0.030317,-1.3225719 0,-0.079582 0.09853,-0.079582 0.1402153,0 0.4168565,0.00379 0.2804307,0.00379 0.4206461,0.00379 0.1288465,0 0.3941188,-0.00379 0.2652723,-0.00379 0.4016981,-0.00379 1.3149927,0 1.9592255,0.4964382 Q 6.3593014,2.4275868 6.6132049,3.0301339 6.85195,3.5909954 6.85195,4.2049113 Z m -0.9284531,0 q 0,-0.8185546 -0.4661214,-1.3339408 -0.4850693,-0.5343342 -1.2960447,-0.5343342 -0.6707599,0 -0.5419134,-0.00758 -0.4433837,0.022738 -0.4433837,0.162953 0,0.2917995 -0.015158,0.8753986 -0.011369,0.5798095 -0.011369,0.871609 0,0.2880099 0.011369,0.8640298 0.015158,0.5760199 0.015158,0.8640298 0,0.144005 0.4547525,0.1667426 -0.060634,-0.00379 0.5532823,-0.00379 0.4358045,0 0.6934976,-0.09095 Q 5.1958928,5.9253917 5.4497963,5.6184337 5.9234969,5.0424138 5.9234969,4.2049113 Z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Berlin Sans FB';-inkscape-font-specification:'Berlin Sans FB';stroke-width:0.264583"
+         id="path4705" />
+    </g>
+  </g>
+</svg>
