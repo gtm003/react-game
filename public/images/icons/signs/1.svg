@@ -18,6 +18,14 @@
   <defs
      id="defs2">
     <linearGradient
+       id="linearGradient3523"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3521" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient864"
        osb:paint="solid">
       <stop
@@ -33,19 +41,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="13.51118"
-     inkscape:cy="25.699262"
+     inkscape:zoom="11.313708"
+     inkscape:cx="22.060142"
+     inkscape:cy="7.5972548"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
-     inkscape:window-width="1500"
-     inkscape:window-height="860"
-     inkscape:window-x="78"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -62,22 +70,25 @@
      inkscape:label="Слой 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:0.975;fill:#ccdde4;fill-opacity:1;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.980392;image-rendering:auto"
+       id="rect1510"
+       width="7.9375"
+       height="7.9375"
+       x="0.26458335"
+       y="0.26458335"
+       rx="0.79374999"
+       ry="0.79374999" />
     <text
        xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:8.59298px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="2.0117126"
-       y="6.9995475"
-       id="text1521"
-       transform="scale(0.9368481,1.0674089)"><tspan
+       style="font-style:normal;font-weight:normal;font-size:6.70278px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="2.7703731"
+       y="6.2559495"
+       id="text906"><tspan
          sodipodi:role="line"
-         id="tspan1519"
-         x="2.0117126"
-         y="6.9995475"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.59298px;font-family:Arial;-inkscape-font-specification:'Arial Bold';stroke-width:0.264583">=</tspan><tspan
-         sodipodi:role="line"
-         x="2.0117126"
-         y="17.840244"
-         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.59298px;font-family:Arial;-inkscape-font-specification:'Arial Bold';stroke-width:0.264583"
-         id="tspan1523" /></text>
+         id="tspan904"
+         x="2.7703731"
+         y="6.2559495"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:6.70278px;font-family:'Berlin Sans FB';-inkscape-font-specification:'Berlin Sans FB';stroke-width:0.264583">=</tspan></text>
   </g>
 </svg>

@@ -41,19 +41,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="20.068614"
-     inkscape:cy="18.665202"
+     inkscape:zoom="11.313708"
+     inkscape:cx="18.953398"
+     inkscape:cy="17.189533"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
-     inkscape:window-width="1500"
-     inkscape:window-height="860"
-     inkscape:window-x="78"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -81,12 +81,12 @@
        ry="0.79374999" />
     <g
        aria-label="C"
-       id="text3533"
-       style="font-style:normal;font-weight:normal;font-size:7.76111px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583">
+       id="text856"
+       style="font-style:normal;font-weight:normal;font-size:10.5833px;line-height:1.25;font-family:sans-serif;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583">
       <path
-         d="m 6.3668806,6.0163422 q 0,0.045475 -0.072002,0.1288465 -0.7389728,0.8564506 -1.8303789,0.8564506 -1.1368813,0 -1.8190101,-0.8299233 -0.6366536,-0.7730793 -0.6366536,-1.9326983 0,-1.1596189 0.6480224,-1.9402774 0.689708,-0.8412922 1.8227997,-0.8412922 1.1482501,0 1.7773245,0.7768689 0.060634,0.079582 0.060634,0.1326361 0,0.064423 -0.200849,0.3827501 -0.200849,0.3145371 -0.2425347,0.3145371 -0.049265,0 -0.2311658,-0.1856906 Q 5.4194795,2.6511735 5.2224201,2.5374853 4.8965141,2.3517947 4.5023952,2.3517947 q -0.7503416,0 -1.1671981,0.5722303 -0.3713813,0.5115966 -0.3713813,1.2884655 0,0.7768689 0.3675917,1.2998343 0.4168565,0.5873887 1.1634085,0.5873887 0.3713813,0 0.7162353,-0.1856906 0.2273762,-0.1212674 0.4623317,-0.344854 0.1970594,-0.1856907 0.2160074,-0.1856907 0.022738,0 0.2501139,0.3031684 0.2273763,0.2993787 0.2273763,0.3296956 z"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.76111px;font-family:'Berlin Sans FB';-inkscape-font-specification:'Berlin Sans FB';stroke-width:0.264583"
-         id="path5290" />
+         d="m 6.2142646,5.8576968 q 0,0.041341 -0.065457,0.1171333 -0.6717941,0.7785921 -1.6639822,0.7785921 -1.0335293,0 -1.6536469,-0.7544764 Q 2.2524023,5.2961459 2.2524023,4.241946 q 0,-1.0541999 0.5891117,-1.76389 0.6270078,-0.7648117 1.657092,-0.7648117 1.0438646,0 1.6157508,0.706245 0.055122,0.072347 0.055122,0.1205784 0,0.058567 -0.1825902,0.3479549 -0.1825902,0.2859431 -0.2204863,0.2859431 -0.044786,0 -0.2101509,-0.1688098 Q 5.3529902,2.79845 5.1738451,2.6950971 4.8775667,2.5262873 4.5192766,2.5262873 q -0.6821294,0 -1.0610901,0.5202098 -0.3376196,0.4650882 -0.3376196,1.1713332 0,0.706245 0.3341745,1.1816685 0.3789607,0.5339902 1.057645,0.5339902 0.3376195,0 0.6511234,-0.1688098 0.2067059,-0.1102432 0.420302,-0.3135039 0.179145,-0.1688098 0.1963705,-0.1688098 0.020671,0 0.2273765,0.2756078 0.2067058,0.2721627 0.2067058,0.2997235 z"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:7.05556px;font-family:'Berlin Sans FB';-inkscape-font-specification:'Berlin Sans FB';stroke-width:0.264583"
+         id="path864" />
     </g>
   </g>
 </svg>

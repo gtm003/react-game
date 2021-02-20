@@ -18,6 +18,14 @@
   <defs
      id="defs2">
     <linearGradient
+       id="linearGradient3523"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3521" />
+    </linearGradient>
+    <linearGradient
        id="linearGradient864"
        osb:paint="solid">
       <stop
@@ -33,19 +41,19 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="20.068614"
-     inkscape:cy="18.665202"
+     inkscape:zoom="11.313708"
+     inkscape:cx="22.060142"
+     inkscape:cy="7.5972548"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
      units="px"
-     inkscape:window-width="1500"
-     inkscape:window-height="860"
-     inkscape:window-x="78"
-     inkscape:window-y="0"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -62,13 +70,22 @@
      inkscape:label="Слой 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="opacity:0.975;fill:#ccdde4;fill-opacity:1;stroke:#000000;stroke-width:0.132292;stroke-linecap:round;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.980392;image-rendering:auto"
+       id="rect1510"
+       width="7.9375"
+       height="7.9375"
+       x="0.26458335"
+       y="0.26458335"
+       rx="0.79374999"
+       ry="0.79374999" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 1.984375,1.984375 6.4822917,6.4822917"
-       id="path1555" />
+       style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 2.8442708,5.6214141 5.6223958,2.8452526"
+       id="path936" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.79375;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="M 6.4822916,1.984375 1.984375,6.4822916"
-       id="path1555-0" />
+       style="fill:none;stroke:#000000;stroke-width:0.396875;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2.8448789,2.8442708 2.7769089,2.778125"
+       id="path938" />
   </g>
 </svg>

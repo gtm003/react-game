@@ -12,12 +12,12 @@
     width: fit-content;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    gap: 5px;
+    gap: 2px;
     & .cell {
       display: flex;
       height: 96px;
       width: 64px;
-      padding: 2px;
+      padding: 1px;
       align-items: center;
       justify-content: center;
       background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);
