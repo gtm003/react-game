@@ -1,28 +1,22 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Context from '../../context';
 import styles from './game.module.scss';
 
 export default function Cell({icon}) {
-
-  function importAll(r) {
-    let images = {};
-    console.log(r.keys());
-    r.keys().map((item, index) => { 
-      images[item.replace('./', '')] = r(item);
-      console.log(r(item)); 
-  });
-    console.log(images);
-    return images;
-  }
-
-  const numbers = [
-    1, 2, 3, 4, 5, 6
-  ]
+  const { removeIcon } = useContext(Context);
   return (
     <div className={styles.cell}>
       <div className={styles.wrapper}>
-        {numbers.map((value, index) => {
+        {icon.content.map((value, index) => {
           return (
-            <img src={`/images/icons/${icon.row}/${value}.svg`} key={index} alt = {`/images/icons/${icon.row}/${value}.svg`}/>
+            <img 
+              src={`/images/icons/${icon.row}/${value}.svg`}
+              key={index}
+              alt = {`/images/icons/${icon.row}/${value}.svg`}
+              className = {styles[`icon${value}`]}
+              onClick = {removeIcon.bind(null, icon.id, index)}
+              //onClick = {() => console.log(index)}
+            />
           );
         })}
       </div>

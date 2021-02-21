@@ -27,6 +27,24 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(3, 1fr);
+        & .icon1 {
+          grid-area: 1 / 1 / 2 / 2;
+        }
+        & .icon2 {
+          grid-area: 1 / 2 / 2 / 3;
+        }
+        & .icon3 {
+          grid-area: 2 / 1 / 3 / 2;
+        }
+        & .icon4 {
+          grid-area: 2 / 2 / 3 / 3;
+        }
+        & .icon5 {
+          grid-area: 3 / 1 / 4 / 2;
+        }
+        & .icon6 {
+          grid-area: 3 / 2 / 4 / 3;
+        }
       }
     }
   }
@@ -35,5 +53,18 @@
     width: 50%;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
+    & .cell {
+      position: relative;
+      display: flex;
+      height: 64px;
+      width: 192px;
+      padding: 1px;
+      align-items: center;
+      justify-content: space-between;
+      background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);
+      & .type {
+        position: absolute;
+      }
+    }
   }
 }
