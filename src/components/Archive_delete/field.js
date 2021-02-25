@@ -1,11 +1,10 @@
+/*
 import React from 'react';
-import { getIcons } from '../../data/icons';
 import Cell from './cell';
 import styles from './game.module.scss';
 
 export default function Field(props) {
-  //const icons = getIcons(6);
-  const getRowContent = props.icons.map((icon) =>
+  const getRowContent = props.cells.map((icon) =>
   <div key={icon.id.toString()}>
     <Cell icon = {icon}/>
   </div>,
@@ -17,4 +16,4 @@ export default function Field(props) {
       }
     </div>
   )
-}
+}*/
