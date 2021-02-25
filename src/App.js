@@ -1,32 +1,40 @@
 import React from 'react';
 import Header from './components/header/header';
-import Game from './components/game/game';
+import GameComponent from './components/game/gameComponent';
 import Footer from './components/footer/footer';
 import Context from './context';
-import { getIcons } from './data/icons';
+import { GameModel } from './model/gameModel';
+const game = new GameModel(6);
+const tips = game.tips;
 
 function App() {
-  const [icons, setIcons] = React.useState(getIcons(6));
-  //const solve = getSolve(6);
 
-  function removeIcon(id, index) {
-    console.log(`${id}   ${index}`);
-    setIcons(
-      icons.map(icon => {
-        if (icon.id === id) {
-          icon.content.splice(index, 1);
-        }
-        return icon;
-      })
+  const [field, setField] = React.useState(game.field);
+
+  function removeGuess(indexRow, indexColumn, value, e) {
+    e.preventDefault();
+    game.removeGuess(indexRow, indexColumn, value);
+    setField(
+      field.map((item, index) => item = game.field[index])
     )
   }
 
-  //const icons = getIcons(6);
+  function openCell(indexRow, indexColumn, value) {
+    game.openCell(indexRow, indexColumn, value);
+    setField(
+      field.map((item, index) => item = game.field[index])
+    )
+  }
+
+  function checkTip(tip) {
+    game.checkTip(tip);
+  }
+
   return (
-    <Context.Provider value = {{removeIcon : removeIcon}}>
+    <Context.Provider value = {{removeGuess, openCell, checkTip,}}>
       <div className = 'wrapper'>
         <Header />
-        <Game icons = {icons}/>
+        <GameComponent tips = {tips} field = {field}/>
         <Footer />
       </div>
     </Context.Provider>
