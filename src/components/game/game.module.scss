@@ -15,11 +15,13 @@
     & .row {
       display: flex;
       flex-direction: row;
+      margin: 1.5px;
       & .cell {
         display: flex;
         height: 96px;
         width: 64px;
-        padding: 1px;
+        margin-right: 3px;
+        //padding: 1px;
         align-items: center;
         justify-content: center;
         background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);

@@ -19,6 +19,7 @@ export class RowModel {
     this.solve = getRandomOderArr(this.quantityCell);
     this.guessColumn = this.getGuessColumn(this.quantityCell);
     this.guessNumber = this.getGuessNumber(this.guessColumn);
+    this.opened = new Array(6).fill(false);
   }
   getGuessColumn(n) {
     const arr = [];

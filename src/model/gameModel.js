@@ -2,7 +2,8 @@ import { RowModel } from './rowModel';
 
 const ICON_TYPE = ['arabic', 'dots', 'letters', 'roman', 'shapes', 'signs'];
 const TIP_TYPE = ['adjacent1', 'adjacent2', 'position', 'oneColumn','open'];
-
+const TIPS_ROW = [['adjacent1', 5, 5, 1, 4], ['adjacent1', 4, 0, 3, 1], ['adjacent2', 1, 0, 0, 1, 4, 2], ['adjacent1', 2, 2, 4, 1], ['adjacent1', 2, 4, 4, 5], ['position', 2, 4, 3, 5], ['position', 2, 4, 0, 5], ['adjacent2', 2, 0, 3, 1, 1, 2], ['adjacent2', 3, 0, 0, 1, 5, 2], ['adjacent1', 1, 0, 1, 1], ['adjacent1', 5, 1, 1, 2], ['adjacent1', 1, 2, 0, 3], ['adjacent1', 4, 1, 2, 0], ['adjacent2', 5, 4, 3, 3, 4, 2], ['adjacent2', 0, 0, 2, 1, 5, 2], ['adjacent2', 5, 2, 3, 3, 3, 4], ['position', 1, 3, 3, 4], ['adjacent2', 0, 1, 3, 2, 2, 3]];
+const TIPS_COLUMN = [['oneColumn', 4, 5, 3, 5], ['oneColumn', 3, 3, 5, 3], ['oneColumn', 0, 4, 4, 4]]
 const getOderArr = (n) => {
   let arr = [];
   Array(n).fill(1).forEach((item, index) => arr.push(index + 1));
@@ -32,7 +33,8 @@ export class GameModel {
   constructor(quantityCell) {
     this.quantityCell = quantityCell;
     this.field = this.getField(this.quantityCell);
-    this.tips = this.getTips();
+    this.tipsRow = this.formatTips(TIPS_ROW);
+    this.tipsColumn = this.formatTips(TIPS_COLUMN);
   }
 
   getField(n) {
@@ -82,28 +84,8 @@ export class GameModel {
     row.guessColumn[indexSolve].delete(indexColumn + 1);
     console.log(row.guessColumn[indexSolve]);
     row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
-
-    if (row.guessNumber[indexColumn].size === 1) {
-      const iterator = row.guessNumber[indexColumn].values();
-      const cellValue = iterator.next().value;
-      console.log('last');
-      const indexSolve = row.solve.indexOf(cellValue);
-      row.guessColumn[indexSolve].clear();
-      row.guessColumn[indexSolve].add(indexColumn + 1);
-    }
-    
-    if (row.guessColumn[indexSolve].size === 1) {
-      console.log('last 2');
-      const iterator = row.guessColumn[indexSolve].values();
-      const indexColumnLast = iterator.next().value;
-      console.log(indexColumnLast);
-      row.guessColumn.map((item, index) => {
-        if (index !== indexSolve) {
-          item.delete(indexColumnLast);
-        }
-      })
-    }
     row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
+    this.checkSingleGuess(indexRow);
   }
 
   openCell(indexRow, indexColumn, value) {
@@ -121,11 +103,85 @@ export class GameModel {
         item.add(indexColumn + 1);
       }
     });
+    row.opened[indexColumn] = true;
     row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
+    this.checkSingleGuess(indexRow);
   }
 
+  isNewOpened(indexRow) {
+    const row = this.field[indexRow];
+    const guessColumnNotOpened = row.guessColumn.filter((item, index) => !row.opened[index]);
+    const guessNumberNotOpened = row.guessNumber.filter((item, index) => !row.opened[index]);
+    return (guessColumnNotOpened.some(item => item.size === 1) || guessNumberNotOpened.some(item => item.size === 1));
+  }
+
+  checkSingleGuess(indexRow) {
+    const row = this.field[indexRow];
+    let i = 0;
+    while(this.isNewOpened(indexRow) && i < 10) {
+      const guessColumnNotOpened = row.guessColumn.filter((item, index) => !row.opened[index]);
+      const guessNumberNotOpened = row.guessNumber.filter((item, index) => !row.opened[index]);
+      let indexSolvedCell = row.guessColumn.findIndex((item, index) => item.size === 1 && !row.opened[index]);
+      if (indexSolvedCell !== -1) {
+        console.log(guessColumnNotOpened);
+        console.log(row.opened);
+        console.log(row.guessNumber);
+        console.log(`indexSolvedCell ${indexSolvedCell}`);
+        console.log('clear1');
+        row.guessColumn.map((item, index) => {
+          if (index !== indexSolvedCell) {
+            item.delete(indexSolvedCell + 1);
+            row.opened[indexSolvedCell] = true;
+          }
+        })
+        row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
+      } else {
+        console.log('clear2');
+        indexSolvedCell = row.guessNumber.findIndex((item, index) => item.size === 1 && !row.opened[index]);
+        const iterator = row.guessNumber[indexSolvedCell].values();
+        const cellValue = iterator.next().value;
+        const indexSolve = row.solve.indexOf(cellValue);
+        row.guessColumn[indexSolve].clear();
+        row.guessColumn[indexSolve].add(indexSolvedCell + 1);
+        row.opened[indexSolvedCell] = true;
+        row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
+      }
+      i++;
+    }
+  }
+  
   getTipType(m, n) {
     return TIP_TYPE[getRandomInteger(m, n)];
+  }
+
+  formatTips(typesArr) {
+    const arr = [];
+    typesArr.forEach(item => {
+      let obj = {
+        type: item[0],
+        arr: [
+          {
+            row: ICON_TYPE[item[1]],
+            column: item[2],
+            solve: this.field[item[1]].solve[item[2]],
+          },
+          {
+            row: ICON_TYPE[item[3]],
+            column: item[4],
+            solve: this.field[item[3]].solve[item[4]],
+          }
+        ]
+      }
+      if (item.length === 7) {
+        obj.arr.push({
+          row: ICON_TYPE[item[5]],
+          column: item[6],
+          solve: this.field[item[5]].solve[item[6]],
+        })
+      }
+      arr.push(obj);
+    })
+    return arr;
   }
 
   getTip () {
@@ -208,21 +264,6 @@ export class GameModel {
     }
     return arr;
   }
-  /*
-  checkSolved(rowName) {
-    const row = this.cells.filter(item => item.row === rowName);
-    let cellSolved = null;
-    cellSolved = row.find(item => item.content.length === 1 && !item.solved);
-    console.log(cellSolved);
-    if (cellSolved !== undefined) {
-      this.cells.map(item => {
-        if (item.row === rowName && item.index !== cellSolved.index)
-        item.content = item.content.filter(e => e !== cellSolved.content[0]);
-        cellSolved.solved = true;
-      })
-      cellSolved = row.find(item => item.content.length === 1 && !item.solved);
-    }
-  }*/
 
   checkTip(tip) {
     console.log(tip);

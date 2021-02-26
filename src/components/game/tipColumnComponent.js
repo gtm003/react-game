@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import Context from '../../context';
 import styles from './game.module.scss';
 
-export default function TipRow({tip}) {
+export default function TipColumn({tip}) {
   const { checkTip } = useContext(Context);
   return (
   <div className={styles.cell} >
@@ -15,18 +15,6 @@ export default function TipRow({tip}) {
           width = '33%'/>
       );
     })}
-    <img
-      src={`/images/tips/${tip.type}.svg`}
-      alt = {`/images/tips/${tip.type}.svg`}
-      className = {styles.type}
-      onClick = {(e) => {checkTip(tip)}}
-      onContextMenu = {(e) => {
-        e.preventDefault();
-        console.log(e.target);
-        e.target.classList.add('transparent');
-      }}
-      height = '100%'
-      width = '100%'/>
   </div>
   )
 }

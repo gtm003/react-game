@@ -7,7 +7,7 @@ export default function GameComponent(props) {
   return (
     <div className={styles.game}>
       <FieldCells field = {props.field}/>
-      <FieldTips tips = {props.tips}/>
+      <FieldTips tipsRow = {props.tipsRow} tipsColumn = {props.tipsColumn}/>
     </div>
   )
 }

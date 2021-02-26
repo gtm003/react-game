@@ -5,7 +5,8 @@ import Footer from './components/footer/footer';
 import Context from './context';
 import { GameModel } from './model/gameModel';
 const game = new GameModel(6);
-const tips = game.tips;
+const tipsRow = game.tipsRow;
+const tipsColumn = game.tipsColumn;
 
 function App() {
 
@@ -34,7 +35,7 @@ function App() {
     <Context.Provider value = {{removeGuess, openCell, checkTip,}}>
       <div className = 'wrapper'>
         <Header />
-        <GameComponent tips = {tips} field = {field}/>
+        <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field}/>
         <Footer />
       </div>
     </Context.Provider>
