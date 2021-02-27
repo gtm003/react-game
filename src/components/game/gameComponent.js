@@ -4,6 +4,9 @@ import FieldTips from './fieldTips';
 import FieldCells from './fieldCells';
 
 export default function GameComponent(props) {
+  function StartGame() {
+
+  }
   return (
     <div className={styles.game}>
       <FieldCells field = {props.field}/>
@@ -11,3 +14,4 @@ export default function GameComponent(props) {
     </div>
   )
 }
+

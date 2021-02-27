@@ -8,6 +8,7 @@ export default function CellComponent({guessCell, rowIndex, columnIndex}) {
   guessCell = Array.from(guessCell);
   const { removeGuess } = useContext(Context);
   const { openCell } = useContext(Context);
+  //const { soundPlay } = useContext(Context);
   return (
     <div className={styles.cell}>
       {
@@ -26,7 +27,11 @@ export default function CellComponent({guessCell, rowIndex, columnIndex}) {
               key={index}
               alt = {`/images/icons/${ICON_TYPE[rowIndex]}/${value}.svg`}
               className = {styles[`icon${value}`]}
-              onContextMenu = {(e) => removeGuess(rowIndex, columnIndex, value, e)}
+              width = '93.75%'
+              onContextMenu = {(e) => {
+                removeGuess(rowIndex, columnIndex, value, e);
+                //soundPlay(`/audio/correct.mp3`);
+              }}
               onClick = {openCell.bind(null, rowIndex, columnIndex, value)}/>
             );
           })}

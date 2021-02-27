@@ -1,11 +1,9 @@
 .game {
-  background-image: url(https://www.zastavki.com/pictures/originals/2015/Backgrounds_____Blue_background_with_rays_092795_.jpg);
-  margin: 0 auto;
-  padding: 5px;
+  margin: 5px;
   display: flex;
   justify-content: space-around;
-  width: 1024px;
-  height: calc(100vh - 100px);
+  //width: 1024px;
+  height: calc(100vh - 110px);
   align-items: center;
 
   & .field {
@@ -18,13 +16,15 @@
       margin: 1.5px;
       & .cell {
         display: flex;
-        height: 96px;
-        width: 64px;
+        height: 90px;
+        width: 60px;
         margin-right: 3px;
         //padding: 1px;
         align-items: center;
         justify-content: center;
         background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);
+        border: 2px solid   rgba(0, 255, 255, 0.3);
+        border-radius: 5px;
         & .wrapper {
           height: 100%;
           width: 100%;
@@ -57,7 +57,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(6, 1fr);
-    grid-gap: 1px;
+    grid-gap: 3px;
     & .cell {
       position: relative;
       display: flex;
@@ -67,26 +67,30 @@
       align-items: center;
       justify-content: space-between;
       background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);
+      border: 2px solid   rgba(0, 255, 255, 0.3);
+      border-radius: 5px;
       & .type {
         position: absolute;
       }
     }
   }
   & .tipsColumn {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    grid-gap: 1px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.5rem;
     & .cell {
       position: relative;
       display: flex;
       flex-direction: column;
-      height: 50px;
-      width: 150px;
+      height: 100px;
+      width: 50px;
       //padding: 1px;
       align-items: center;
       justify-content: space-between;
       background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);
+      border: 2px solid rgba(0, 255, 255, 0.3);
+      border-radius: 5px;
+      margin-right: 3px;
       & .type {
         position: absolute;
       }
@@ -94,6 +98,6 @@
   }
 }
 
-.transparent {
+.hidden {
   opacity: 0;
 }

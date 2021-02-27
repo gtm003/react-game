@@ -12,7 +12,7 @@ export default function TipColumn({tip}) {
           src={`/images/icons/${item.row}/${item.solve}.svg`}
           key={index}
           alt = {`${item.row}/${item.solve}.svg`}
-          width = '33%'/>
+          width = '100%'/>
       );
     })}
   </div>

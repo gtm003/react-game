@@ -23,7 +23,7 @@ export default function TipRow({tip}) {
       onContextMenu = {(e) => {
         e.preventDefault();
         console.log(e.target);
-        e.target.classList.add('transparent');
+        e.target.classList.toggle('hidden');
       }}
       height = '100%'
       width = '100%'/>

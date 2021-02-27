@@ -1,13 +1,14 @@
 .footer {
-  background-color: aqua;
+  background-color: rgba(0, 255, 255, 0.3);
   display: flex;
   justify-content: space-around;
   height: 50px;
   align-items: center;
+  margin: 0;
   & .gtm003 {
     display: block;
     width: 90px;
-    height: 50px;
+    height: 40px;
     background: url('../../assets/gtm003.svg') 100%/contain no-repeat;
   }
   & .RSSchool {
@@ -19,7 +20,7 @@
   & .youtube {
     display: block;
     width: 90px;
-    height: 60px;
+    height: 40px;
     background: url('../../assets/youtube.svg') 100%/contain no-repeat;
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './game.module.scss';
 import TipRow from './tipRowComponent';
 import TipColumn from './tipColumnComponent';
+import Buttons from './buttons';
 
 export default function FieldTips(props) {
   return (
@@ -20,6 +21,7 @@ export default function FieldTips(props) {
           )
         })}
       </div>
+      <Buttons />
     </div>
 
   )

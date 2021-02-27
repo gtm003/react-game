@@ -1,15 +1,20 @@
 import React from 'react';
 import styles from './header.module.scss';
 
-
-function FormattedDate(props) {
-  return <h2>{props.date.toLocaleTimeString()}</h2>;
+function FormattedTime(props) {
+  const hour = Math.floor(props.time / 3600);
+  const min = Math.floor(props.time / 60);
+  const sec = props.time % 60;
+  function addZero(n) {
+    return (parseInt(n, 10) < 10 ? '0' : '') + n;
+  }
+  return <h2>{`${addZero(hour)}:${addZero(min)}:${addZero(sec)}`}</h2>;
 }
 
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {date: new Date()};
+    this.state = {time: props.time};
   }
 
   componentDidMount() {
@@ -25,24 +30,24 @@ class Clock extends React.Component {
 
   tick() {
     this.setState({
-      date: new Date()
+      time: this.state.time += 1
     });
   }
 
   render() {
     return (
       <div>
-        <FormattedDate date={this.state.date} />
+        <FormattedTime time={this.state.time} />
       </div>
     );
   }
 }
 
-export default function Header() {
+export default function Header(props) {
   return (
     <div className={styles.header}>
-      <h1 style = {styles.h1}>Головоломка Энштейна</h1>
-      <Clock />
+      <h1 style = {styles.h1}>Головоломка Эйнштейна</h1>
+      <Clock time = {props.time}/>
     </div>
   )
 }
