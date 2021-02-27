@@ -12,6 +12,9 @@ export default function TipColumn({tip}) {
           src={`/images/icons/${item.row}/${item.solve}.svg`}
           key={index}
           alt = {`${item.row}/${item.solve}.svg`}
+          onContextMenu = {(e) => {
+            e.preventDefault();
+            e.target.parentNode.classList.toggle('hidden');}}
           width = '100%'/>
       );
     })}

@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
+  justify-items: right;
   & button {
     background: linear-gradient(315deg, rgb(4, 1, 17) 0%, rgba(58,72,221,1) 100%);
     color: yellow;

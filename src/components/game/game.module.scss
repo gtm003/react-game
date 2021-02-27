@@ -6,7 +6,7 @@
   height: calc(100vh - 110px);
   align-items: center;
 
-  & .field {
+  .field {
     display: flex;
     width: fit-content;
     flex-direction: column;
@@ -74,30 +74,43 @@
       }
     }
   }
-  & .tipsColumn {
+  & .wrapperTipsColumButton{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin-top: 0.5rem;
-    & .cell {
-      position: relative;
+    & .tipsColumn {
       display: flex;
-      flex-direction: column;
-      height: 100px;
-      width: 50px;
-      //padding: 1px;
-      align-items: center;
-      justify-content: space-between;
-      background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);
-      border: 2px solid rgba(0, 255, 255, 0.3);
-      border-radius: 5px;
-      margin-right: 3px;
-      & .type {
-        position: absolute;
+      flex-direction: row;
+      & .cell {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        height: 100px;
+        width: 50px;
+        align-items: center;
+        justify-content: space-between;
+        background:linear-gradient(315deg, rgba(255,255,255,1) 0%, rgba(58,72,221,1) 100%);
+        border: 2px solid rgba(0, 255, 255, 0.3);
+        border-radius: 5px;
+        margin-right: 3px;
       }
     }
+    & .wrapperButtons {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+    & button {
+      background: linear-gradient(315deg, rgb(4, 1, 17) 0%, rgba(58,72,221,1) 100%);
+      color: yellow;
+      width: 180px;
+      height: 40px;
+      border: 2px solid   rgba(0, 255, 255, 0.3);
+      border-radius: 5px;
+      font-size: 20px;
+      margin: 0.3rem;
+    }
   }
-}
-
-.hidden {
-  opacity: 0;
 }

@@ -14,12 +14,19 @@ export default function FieldTips(props) {
           )
         })}
       </div>
-      <div className={styles.tipsColumn}>
-      {props.tipsColumn.map((item, index) => {
-          return (
-            <TipColumn tip = {item} key = {index}/>
-          )
-        })}
+      <div className = {styles.wrapperTipsColumButton}>
+        <div className={styles.tipsColumn}>
+          {props.tipsColumn.map((item, index) => {
+            return (
+              <TipColumn tip = {item} key = {index}/>
+            )
+          })}
+        </div>
+        <div className = {styles.wrapperButtons}>
+          <button>Пауза</button>
+          <button>Скрытые</button>
+        </div>
+
       </div>
       <Buttons />
     </div>

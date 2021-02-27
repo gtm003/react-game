@@ -5,7 +5,7 @@ import GameComponent from './components/game/gameComponent';
 import Footer from './components/footer/footer';
 import Context from './context';
 import { GameModel } from './model/gameModel';
-import Modal from './components/modal/rules';
+import Modal from './components/modal/rules/rules';
 //import correctEvent from '../public/audio/correct.mp3';
 let game = new GameModel(6);
 //const tipsRow = game.tipsRow;

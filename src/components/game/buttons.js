@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Context from '../../context';
-import ModalRules from '../modal/rules';
+import ModalRules from '../modal/rules/rules';
 import styles from './buttons.module.scss'
 //import RowContent from './rowComponent';
 

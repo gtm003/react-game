@@ -158,6 +158,7 @@ export class GameModel {
     const arr = [];
     typesArr.forEach(item => {
       let obj = {
+        closed: false,
         type: item[0],
         arr: [
           {

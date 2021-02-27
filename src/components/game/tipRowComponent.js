@@ -22,8 +22,7 @@ export default function TipRow({tip}) {
       onClick = {(e) => {checkTip(tip)}}
       onContextMenu = {(e) => {
         e.preventDefault();
-        console.log(e.target);
-        e.target.classList.toggle('hidden');
+        e.target.parentNode.classList.toggle('hidden');
       }}
       height = '100%'
       width = '100%'/>
