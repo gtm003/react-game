@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-game/static/css/main.79d853ba.chunk.css",
+    "main.js": "/react-game/static/js/main.f3821a2e.chunk.js",
+    "main.js.map": "/react-game/static/js/main.f3821a2e.chunk.js.map",
+    "runtime-main.js": "/react-game/static/js/runtime-main.45bdc204.js",
+    "runtime-main.js.map": "/react-game/static/js/runtime-main.45bdc204.js.map",
+    "static/js/2.292a1123.chunk.js": "/react-game/static/js/2.292a1123.chunk.js",
+    "static/js/2.292a1123.chunk.js.map": "/react-game/static/js/2.292a1123.chunk.js.map",
+    "static/js/3.f3c83f26.chunk.js": "/react-game/static/js/3.f3c83f26.chunk.js",
+    "static/js/3.f3c83f26.chunk.js.map": "/react-game/static/js/3.f3c83f26.chunk.js.map",
+    "index.html": "/react-game/index.html",
+    "static/css/main.79d853ba.chunk.css.map": "/react-game/static/css/main.79d853ba.chunk.css.map",
+    "static/js/2.292a1123.chunk.js.LICENSE.txt": "/react-game/static/js/2.292a1123.chunk.js.LICENSE.txt",
+    "static/media/footer.module.scss": "/react-game/static/media/youtube.bdf00893.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45bdc204.js",
+    "static/js/2.292a1123.chunk.js",
+    "static/css/main.79d853ba.chunk.css",
+    "static/js/main.f3821a2e.chunk.js"
+  ]
+}
