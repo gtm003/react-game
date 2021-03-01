@@ -78,11 +78,10 @@ export class GameModel {
   removeGuess(indexRow, indexColumn, value) {
     const row = this.field[indexRow];
     if (row.solve[indexColumn] === value) {
-      console.log('error remove');
+      //console.log('error remove');
     } 
     const indexSolve = row.solve.indexOf(value);
     row.guessColumn[indexSolve].delete(indexColumn + 1);
-    console.log(row.guessColumn[indexSolve]);
     row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
     row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
     this.checkSingleGuess(indexRow);
@@ -91,7 +90,7 @@ export class GameModel {
   openCell(indexRow, indexColumn, value) {
     const row = this.field[indexRow];
     if (row.solve[indexColumn] !== value) {
-      console.log('error open');
+      //console.log('error open');
     }
     const indexSolve = row.solve.indexOf(value);
     row.guessColumn.map((item, index) => {
@@ -117,17 +116,11 @@ export class GameModel {
 
   checkSingleGuess(indexRow) {
     const row = this.field[indexRow];
-    let i = 0;
-    while(this.isNewOpened(indexRow) && i < 10) {
+    while(this.isNewOpened(indexRow)) {
       const guessColumnNotOpened = row.guessColumn.filter((item, index) => !row.opened[index]);
       const guessNumberNotOpened = row.guessNumber.filter((item, index) => !row.opened[index]);
       let indexSolvedCell = row.guessColumn.findIndex((item, index) => item.size === 1 && !row.opened[index]);
       if (indexSolvedCell !== -1) {
-        console.log(guessColumnNotOpened);
-        console.log(row.opened);
-        console.log(row.guessNumber);
-        console.log(`indexSolvedCell ${indexSolvedCell}`);
-        console.log('clear1');
         row.guessColumn.map((item, index) => {
           if (index !== indexSolvedCell) {
             item.delete(indexSolvedCell + 1);
@@ -136,7 +129,6 @@ export class GameModel {
         })
         row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
       } else {
-        console.log('clear2');
         indexSolvedCell = row.guessNumber.findIndex((item, index) => item.size === 1 && !row.opened[index]);
         const iterator = row.guessNumber[indexSolvedCell].values();
         const cellValue = iterator.next().value;
@@ -146,7 +138,6 @@ export class GameModel {
         row.opened[indexSolvedCell] = true;
         row.guessNumber = this.getGuessNumber(row.guessColumn, row.solve);
       }
-      i++;
     }
   }
   
@@ -158,7 +149,7 @@ export class GameModel {
     const arr = [];
     typesArr.forEach(item => {
       let obj = {
-        closed: false,
+        hidden: false,
         type: item[0],
         arr: [
           {
@@ -264,6 +255,15 @@ export class GameModel {
       arr.push(this.getTip());
     }
     return arr;
+  }
+
+  isVictory() {
+    let isVictory = true;
+    this.field.forEach(row => {
+      if (row.opened.includes(false))
+      isVictory =false;
+    })
+    return isVictory;
   }
 
   checkTip(tip) {

@@ -2,11 +2,16 @@ import React, { useContext } from 'react';
 import Context from '../../context';
 import styles from './game.module.scss';
 
-export default function TipRow({tip}) {
+export default function TipRow(props) {
   const { checkTip } = useContext(Context);
+  const {onToggleTip} = useContext(Context);
+  const classes = [styles.cell];
+  if (props.tip.hidden === true) {
+    classes.push('hidden');
+  }
   return (
-  <div className={styles.cell} >
-    {tip.arr.map((item, index) => {
+  <div className={classes.join(' ')} >
+    {props.tip.arr.map((item, index) => {
       return (
         <img 
           src={`/images/icons/${item.row}/${item.solve}.svg`}
@@ -16,13 +21,13 @@ export default function TipRow({tip}) {
       );
     })}
     <img
-      src={`/images/tips/${tip.type}.svg`}
-      alt = {`/images/tips/${tip.type}.svg`}
+      src={`/images/tips/${props.tip.type}.svg`}
+      alt = {`/images/tips/${props.tip.type}.svg`}
       className = {styles.type}
-      onClick = {(e) => {checkTip(tip)}}
+      onClick = {(e) => {checkTip(props.tip)}}
       onContextMenu = {(e) => {
         e.preventDefault();
-        e.target.parentNode.classList.toggle('hidden');
+        onToggleTip(props.tip, props.id);
       }}
       height = '100%'
       width = '100%'/>

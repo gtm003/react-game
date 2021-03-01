@@ -14,9 +14,12 @@ function FormattedTime(props) {
 class Clock extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {time: props.time};
+    this.state = {
+      time: props.time,
+      pause: props.pause
+    };
   }
-
+  
   componentDidMount() {
     this.timerID = setInterval(
       () => this.tick(),
@@ -33,6 +36,21 @@ class Clock extends React.Component {
       time: this.state.time += 1
     });
   }
+  
+ componentDidUpdate(prevProps) {
+  if (this.props.pause !== prevProps.pause) {
+    if (prevProps.pause) {
+      this.componentWillUnmount();
+    } else {
+      this.componentDidMount();
+    }
+  }
+  if (this.props.time !== prevProps.time) {
+    this.setState((state) => {
+      return {time: this.props.time}
+    })
+  }
+}
 
   render() {
     return (
@@ -47,7 +65,7 @@ export default function Header(props) {
   return (
     <div className={styles.header}>
       <h1 style = {styles.h1}>Головоломка Эйнштейна</h1>
-      <Clock time = {props.time}/>
+      <Clock time = {props.time} pause = {props.pause}/>
     </div>
   )
 }
