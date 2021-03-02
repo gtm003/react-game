@@ -95,7 +95,27 @@ function App() {
   function getNameWinner(name) {
     setVictory(!victory);
     newGame();
-    console.log(name);
+    const time = localStorage.getItem('time');
+    let score;
+    if (localStorage.getItem('score')) {
+      score = JSON.parse(localStorage.getItem('score'));
+      score.push([name, time]);
+    }
+    else score = [[name, time]];
+    function sortArr(arr) {
+      const arrSort = [];
+      const arrTime = arr.map(item => item[1]);
+      arrTime.sort(function (a, b) {
+        return a - b;
+      });
+      arrTime.forEach(time => {
+        let name = arr.find(item => item[1] === time)[0];
+        arrSort.push([name, time])
+      })
+      return arrSort;
+    }
+    score = sortArr(score).slice(0,9);
+    localStorage.setItem('score', JSON.stringify(score));
   }
 
   return (

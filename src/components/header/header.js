@@ -3,7 +3,7 @@ import styles from './header.module.scss';
 
 function FormattedTime(props) {
   const hour = Math.floor(props.time / 3600);
-  const min = Math.floor(props.time / 60);
+  const min = Math.floor((props.time % 3600) / 60);
   const sec = props.time % 60;
   function addZero(n) {
     return (parseInt(n, 10) < 10 ? '0' : '') + n;

@@ -1,12 +1,23 @@
 import React from 'react';
 import styles from './modal.module.scss';
 
+
 export default class ModalScore extends React.Component {
   state = {
     isOpen: false,
     index: 0
   }
+    
   render() {
+    const score = new Array(10).fill(['', '']);
+
+    if (localStorage.getItem('score')) {
+      const scoreLocalStorage = JSON.parse(localStorage.getItem('score'));
+      scoreLocalStorage.forEach((item, index) => score[index] = item);
+    }
+    let spanRightStyle = {
+      float: 'right'
+    };
     return (
       <React.Fragment>
       <button onClick = {() => this.setState({isOpen: true})}>Доска почета</button>
@@ -14,7 +25,17 @@ export default class ModalScore extends React.Component {
       {this.state.isOpen && (<div className = {styles.modal} >
         <div className = {styles.modalBody}>
           {this.state.index === 0 && (<div className = {styles.page}>
-            <h3>Доска почета</h3>
+            <h1>Доска почета</h1>
+            <h2>Сложность игры: сложная</h2>
+            <ol>
+              {
+                score.map((item, index) => {
+                  return (
+                    <li key = {index}><span>{item[0]}</span><span style = {spanRightStyle}>{FormattedTime(item[1])}</span></li>
+                  )
+                })
+              }
+            </ol>
 
           </div>)}
 
@@ -43,4 +64,20 @@ export default class ModalScore extends React.Component {
     </React.Fragment>
     )
   }
+}
+
+function FormattedTime(time) {
+  let timeToString;
+  if (!time) timeToString = ''
+  else {
+    const hour = Math.floor(time / 3600);
+    const min = Math.floor((time % 3600) / 60);
+    const sec = time % 60;
+    function addZero(n) {
+      return (parseInt(n, 10) < 10 ? '0' : '') + n;
+    }
+    timeToString = `${addZero(hour)}:${addZero(min)}:${addZero(sec)}`;
+  }
+
+  return timeToString;
 }
