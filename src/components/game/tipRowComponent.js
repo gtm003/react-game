@@ -13,24 +13,21 @@ export default function TipRow(props) {
   <div className={classes.join(' ')} >
     {props.tip.arr.map((item, index) => {
       return (
-        <img 
-          src={`/images/icons/${item.row}/${item.solve}.svg`}
-          key={index}
-          alt = {`${item.row}/${item.solve}.svg`}
-          width = '33%'/>
-      );
+        <div className = {styles.iconContainer} key={index}>
+        <svg viewBox="0 0 32 32" width="100%" height="100%"> 
+          <use xlinkHref={`#${item.row}${item.solve - 1}`}/>
+        </svg>
+      </div>
+      )
     })}
-    <img
-      src={`/images/tips/${props.tip.type}.svg`}
-      alt = {`/images/tips/${props.tip.type}.svg`}
-      className = {styles.type}
-      onClick = {(e) => {checkTip(props.tip)}}
-      onContextMenu = {(e) => {
-        e.preventDefault();
-        onToggleTip(props.tip, props.id);
-      }}
-      height = '100%'
-      width = '100%'/>
+    <svg viewBox="0 0 192 64" width="100%" height="100%" className = {styles.type}
+        onClick = {(e) => {checkTip(props.tip)}}
+        onContextMenu = {(e) => {
+          e.preventDefault();
+          onToggleTip(props.tip, props.id);
+        }}> 
+      <use xlinkHref={`#${props.tip.type}`}/>
+    </svg>
   </div>
   )
 }

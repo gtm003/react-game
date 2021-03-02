@@ -13,16 +13,15 @@ export default function TipColumn(props) {
   <div className={classes.join(' ')} >
     {props.tip.arr.map((item, index) => {
       return (
-        <img 
-          src={`/images/icons/${item.row}/${item.solve}.svg`}
-          key={index}
-          alt = {`${item.row}/${item.solve}.svg`}
-          onContextMenu = {(e) => {
-            e.preventDefault();
-            onToggleTip(props.tip, props.id);
-          }}
-          width = '100%'/>
-      );
+        <div className = {styles.iconContainer} key={index} onContextMenu = {(e) => {
+          e.preventDefault();
+          onToggleTip(props.tip, props.id);
+        }}>
+        <svg viewBox="0 0 32 32" width="100%" height="100%"> 
+          <use xlinkHref={`#${item.row}${item.solve - 1}`}/>
+        </svg>
+      </div>
+      )
     })}
   </div>
   )

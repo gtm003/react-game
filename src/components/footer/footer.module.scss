@@ -5,6 +5,16 @@
   height: 50px;
   align-items: center;
   margin: 0;
+  & .bg {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: rgb(198, 229, 240);
+    border: rgb(95, 74, 189) solid 1px;
+    &:hover {
+      background: rgb(221, 241, 132);
+    }
+  }
   & .gtm003 {
     display: block;
     width: 90px;

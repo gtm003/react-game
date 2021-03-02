@@ -153,12 +153,12 @@ export class GameModel {
         type: item[0],
         arr: [
           {
-            row: ICON_TYPE[item[1]],
+            row: item[1],
             column: item[2],
             solve: this.field[item[1]].solve[item[2]],
           },
           {
-            row: ICON_TYPE[item[3]],
+            row: item[3],
             column: item[4],
             solve: this.field[item[3]].solve[item[4]],
           }
@@ -166,7 +166,7 @@ export class GameModel {
       }
       if (item.length === 7) {
         obj.arr.push({
-          row: ICON_TYPE[item[5]],
+          row: item[5],
           column: item[6],
           solve: this.field[item[5]].solve[item[6]],
         })
