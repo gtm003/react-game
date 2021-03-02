@@ -84,7 +84,7 @@ function App() {
     setTipsRow(game.tipsRow);
     setTipsColumn(game.tipsColumn);
     setTime(!time);
-    if(!pause) setPause(!pause);
+    if(pause) setPause(!pause);
   }
 
   function getNameWinner(name) {

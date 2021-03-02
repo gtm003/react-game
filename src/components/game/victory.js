@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Context from './context';
+import Context from '../../context';
 import styles from './victory.module.scss'
 //import RowContent from './rowComponent';
 

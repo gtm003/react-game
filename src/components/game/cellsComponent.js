@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import Context from '../../context';
 import styles from './game.module.scss';
-import Icons from '../../assets/icons/icons'
+import Icons from '../../assets/icons'
 
 export default function CellComponent({guessCell, rowIndex, columnIndex}) {
   guessCell = Array.from(guessCell);

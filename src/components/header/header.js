@@ -11,7 +11,7 @@ function FormattedTime(props) {
   return <h2>{`${addZero(hour)}:${addZero(min)}:${addZero(sec)}`}</h2>;
 }
 
-class Clock extends React.Component {
+class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +39,7 @@ class Clock extends React.Component {
   
  componentDidUpdate(prevProps) {
   if (this.props.pause !== prevProps.pause) {
-    if (prevProps.pause) {
+    if (this.props.pause) {
       this.componentWillUnmount();
     } else {
       this.componentDidMount();
@@ -65,7 +65,7 @@ export default function Header(props) {
   return (
     <div className={styles.header}>
       <h1 style = {styles.h1}>Головоломка Эйнштейна</h1>
-      <Clock time = {props.time} pause = {props.pause}/>
+      <Timer time = {props.time} pause = {props.pause}/>
     </div>
   )
 }

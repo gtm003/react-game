@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './game.module.scss';
 import FieldTips from './fieldTips';
 import FieldCells from './fieldCells';
-import Victory from '../../victory';
+import Victory from './victory';
 
 export default function GameComponent(props) {
   return (
