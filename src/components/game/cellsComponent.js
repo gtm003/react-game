@@ -21,6 +21,7 @@ export default function CellComponent({guessCell, rowIndex, columnIndex}) {
         
         <div className={styles.wrapper}>
         {guessCell.map((value, index) => {
+          //console.log(`#${rowIndex}${value - 1}`);
           return (
             <div className = {styles[`icon${value}`]} key={index} onClick = {openCell.bind(null, rowIndex, columnIndex, value)} 
             onContextMenu = {(e) => {

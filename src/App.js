@@ -1,20 +1,25 @@
 import React from 'react';
-//import useSound from 'use-sound';
 import Header from './components/header/header';
 import GameComponent from './components/game/gameComponent';
 import Footer from './components/footer/footer';
 import Context from './context';
 import { GameModel } from './model/gameModel';
 
-let game = new GameModel(6);
+let game = new GameModel(6, true);
 
 function App() {
   const [field, setField] = React.useState(game.field);
   const [tipsRow, setTipsRow] = React.useState(game.tipsRow);
   const [tipsColumn, setTipsColumn] = React.useState(game.tipsColumn);
-  const [time, setTime] = React.useState(true);
+  const [timeReset, setTimeReset] = React.useState(true);
   const [victory, setVictory] = React.useState(false);
-  const [pause, setPause] = React.useState(false);
+  const [timePause, setTimePause] = React.useState(false);
+  const timeValue = Number(localStorage.getItem('time'));
+  
+  window.addEventListener("unload", () => {
+    game.setFieldLocalStorage();
+    game.setTipsLocalStorage();
+  });
 
   function removeGuess(indexRow, indexColumn, value, e) {
     e.preventDefault();
@@ -29,7 +34,7 @@ function App() {
     }
     if (game.isVictory()) {
       setVictory(!victory);
-      setPause(!pause);
+      setTimePause(!timePause);
     }
   }
 
@@ -45,7 +50,7 @@ function App() {
     }
     if (game.isVictory()) {
       setVictory(!victory);
-      setPause(!pause);
+      setTimePause(!timePause);
     }
   }
 
@@ -75,16 +80,16 @@ function App() {
   }
 
   function pauseGame() {
-    setPause(!pause);
+    setTimePause(!timePause);
   }
 
   function newGame() {
-    game = new GameModel(6);
+    game = new GameModel(6, false);
     setField(game.field);
     setTipsRow(game.tipsRow);
     setTipsColumn(game.tipsColumn);
-    setTime(!time);
-    if(pause) setPause(!pause);
+    setTimeReset(!timeReset);
+    if(timePause) setTimePause(!timePause);
   }
 
   function getNameWinner(name) {
@@ -96,7 +101,7 @@ function App() {
   return (
     <Context.Provider value = {{removeGuess, openCell, checkTip, newGame, pauseGame, onToggleTip, getNameWinner}}>
       <div className = 'wrapper'>
-        <Header time = {time} pause = {pause}/>
+        <Header reset = {timeReset} pause = {timePause} time = {timeValue}/>
         <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory}/>
         <Footer />
       </div>

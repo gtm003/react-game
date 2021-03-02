@@ -30,11 +30,12 @@ const getRandomSignNumber = () => {
 }
 
 export class GameModel {
-  constructor(quantityCell) {
+  constructor(quantityCell, isLoad) {
     this.quantityCell = quantityCell;
-    this.field = this.getField(this.quantityCell);
-    this.tipsRow = this.formatTips(TIPS_ROW);
-    this.tipsColumn = this.formatTips(TIPS_COLUMN);
+    this.isLoad = isLoad;
+    this.field = this.getFieldLocalStorage();
+    this.tipsRow = this.getTipsRowLocalStorage();
+    this.tipsColumn = this.getTipsColumnLocalStorage();
   }
 
   getField(n) {
@@ -78,7 +79,6 @@ export class GameModel {
   removeGuess(indexRow, indexColumn, value) {
     const row = this.field[indexRow];
     if (row.solve[indexColumn] === value) {
-      //console.log('error remove');
     } 
     const indexSolve = row.solve.indexOf(value);
     row.guessColumn[indexSolve].delete(indexColumn + 1);
@@ -90,7 +90,6 @@ export class GameModel {
   openCell(indexRow, indexColumn, value) {
     const row = this.field[indexRow];
     if (row.solve[indexColumn] !== value) {
-      //console.log('error open');
     }
     const indexSolve = row.solve.indexOf(value);
     row.guessColumn.map((item, index) => {
@@ -266,6 +265,55 @@ export class GameModel {
     return isVictory;
   }
 
+  setFieldLocalStorage() {
+    let field = [];
+    this.field.forEach(row => {
+      let newRow = {};
+      newRow = {
+        guessColumn : row.guessColumn.map(item => Array.from(item)),
+        guessNumber : row.guessNumber.map(item => Array.from(item)),
+        opened : row.opened,
+        quantityCell : 6,
+        solve : row.solve,
+      }
+      field.push(newRow);
+    });
+    const serialField = JSON.stringify(field);
+    localStorage.setItem('field', serialField);
+  }
+  
+  setTipsLocalStorage() {
+    const serialTipsRow = JSON.stringify(this.tipsRow);
+    localStorage.setItem('tipsRow', serialTipsRow);
+    const serialTipsColumn = JSON.stringify(this.tipsColumn);
+    localStorage.setItem('tipsColumn', serialTipsColumn);
+  }
+  
+  getFieldLocalStorage() {
+    let field;
+    if (JSON.parse(localStorage.getItem('field')) && this.isLoad) {
+      field = JSON.parse(localStorage.getItem('field'));
+      field.forEach(row => {
+        row.guessColumn = row.guessColumn.map(item => new Set(item));
+        row.guessNumber = row.guessNumber.map(item => new Set(item));
+      });
+    } else {
+      field = this.getField(this.quantityCell);
+    }
+    return field;
+  }
+  
+  getTipsRowLocalStorage() {
+    if (JSON.parse(localStorage.getItem('tipsRow')) && this.isLoad)
+    return JSON.parse(localStorage.getItem('tipsRow'))
+    else return this.formatTips(TIPS_ROW);
+  }
+  getTipsColumnLocalStorage() {
+    if (JSON.parse(localStorage.getItem('tipsColumn')) && this.isLoad)
+    return JSON.parse(localStorage.getItem('tipsColumn'))
+    else return this.formatTips(TIPS_COLUMN);
+  }
+
   checkTip(tip) {
     console.log(tip);
     switch(tip.type) {
@@ -291,4 +339,5 @@ export class GameModel {
 
     }
   }
+
 }

@@ -15,8 +15,9 @@ class Timer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: props.time,
-      pause: props.pause
+      reset: props.reset,
+      pause: props.pause,
+      time: props.time
     };
   }
   
@@ -35,22 +36,23 @@ class Timer extends React.Component {
     this.setState({
       time: this.state.time += 1
     });
+    localStorage.setItem('time', this.state.time);
   }
   
- componentDidUpdate(prevProps) {
-  if (this.props.pause !== prevProps.pause) {
-    if (this.props.pause) {
-      this.componentWillUnmount();
-    } else {
+  componentDidUpdate(prevProps) {
+    if (this.props.pause !== prevProps.pause) {
+      if (this.props.pause) {
+        this.componentWillUnmount();
+      } else {
       this.componentDidMount();
+      }
+    }
+    if (this.props.reset !== prevProps.reset) {
+      this.setState((state) => {
+        return {time: 0}
+      })
     }
   }
-  if (this.props.time !== prevProps.time) {
-    this.setState((state) => {
-      return {time: this.props.time}
-    })
-  }
-}
 
   render() {
     return (
@@ -65,7 +67,7 @@ export default function Header(props) {
   return (
     <div className={styles.header}>
       <h1 style = {styles.h1}>Головоломка Эйнштейна</h1>
-      <Timer time = {props.time} pause = {props.pause}/>
+      <Timer time = {props.time} reset = {props.reset} pause = {props.pause}/>
     </div>
   )
 }
