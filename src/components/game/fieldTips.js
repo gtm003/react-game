@@ -8,7 +8,7 @@ import Buttons from './buttons';
 export default function FieldTips(props) {
   const { pauseGame } = useContext(Context);
   return (
-    <div>
+    <div className={styles.fieldTips}>
       <div className={styles.tipsRow}>
         {props.tipsRow.map((item, index) => {
           return (
@@ -25,9 +25,7 @@ export default function FieldTips(props) {
           })}
         </div>
         <div className = {styles.wrapperButtons}>
-          <button onClick = {() => pauseGame()}>Пауза</button>
-          <button>Скрытые</button>
-        </div>
+      </div>
 
       </div>
       <Buttons />

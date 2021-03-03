@@ -144,7 +144,7 @@ function App() {
     audio.play();
   }
 
-  document.addEventListener("DOMContentLoaded", switchOnMusicVolume);
+  document.addEventListener("click", switchOnMusicVolume);
 
   return (
     <Context.Provider value = {{removeGuess, openCell, checkTip, newGame, onToggleSettings, pauseGame, onToggleTip, setResult, onChangeMusicVolume}}>

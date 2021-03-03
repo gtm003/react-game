@@ -5,14 +5,11 @@ import RowContent from './rowComponent';
 export default function FieldCells({field}) {
   //console.log(field[0].solve);
   return (
-    <div className={styles.field}>
+    <div className={styles.fieldCells}>
       {field.map((item, index) => {
         item = item.guessNumber;
         return (
-          <div
-            key={index}>
-              <RowContent guessRow = {item} rowIndex = {index}/>             
-            </div>
+          <RowContent guessRow = {item} rowIndex = {index} key={index}/>
             );
           })}
     </div>
