@@ -1,11 +1,12 @@
 .buttons {
+
   margin-top: 0.5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 1fr);
   justify-items: right;
   & button {
-    background: linear-gradient(315deg, rgb(4, 1, 17) 0%, rgba(58,72,221,1) 100%);
+    background: rgba(9, 13, 58, 0.6);
     color: yellow;
     width: 18vh;
     height: 6vh;
@@ -13,11 +14,12 @@
     border-radius: 5px;
     font-size: 1rem;
     margin: 0.3rem;
+    transition: all 0.5s ease;
     &:hover {
       cursor: pointer;
-      background: linear-gradient(315deg, rgb(24, 21, 37) 0%, rgba(78,92,241,1) 100%);
-      color: rgb(225, 225, 180);
-      font-weight: 700;
+      background: rgb(126, 240, 135);
+      color: rgb(0, 0, 0);
+      border: 2px solid   rgba(0, 0, 0, 0.6);
     }
   }
 }

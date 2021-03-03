@@ -98,6 +98,7 @@ function App() {
 
   function pauseGame() {
     setTimePause(!timePause);
+    onToggleAllTips();
   }
 
   function newGame() {
