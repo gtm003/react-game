@@ -15,5 +15,11 @@
     border-radius: 5px;
     font-size: 20px;
     margin: 0.3rem;
+    &:hover {
+      cursor: pointer;
+      background: linear-gradient(315deg, rgb(24, 21, 37) 0%, rgba(78,92,241,1) 100%);
+      color: rgb(225, 225, 180);
+      font-weight: 700;
+    }
   }
 }

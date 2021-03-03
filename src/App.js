@@ -4,6 +4,7 @@ import GameComponent from './components/game/gameComponent';
 import Footer from './components/footer/footer';
 import Context from './context';
 import { GameModel } from './model/gameModel';
+import Music from './components/audio/music';
 
 let game = new GameModel(6, true);
 
@@ -11,10 +12,12 @@ function App() {
   const [field, setField] = React.useState(game.field);
   const [tipsRow, setTipsRow] = React.useState(game.tipsRow);
   const [tipsColumn, setTipsColumn] = React.useState(game.tipsColumn);
-  const [timeReset, setTimeReset] = React.useState(true);
   const [victory, setVictory] = React.useState(false);
+  const [timeReset, setTimeReset] = React.useState(true);
   const [timePause, setTimePause] = React.useState(false);
+  const [isSettingsOpened, setIsSettingsOpened] = React.useState(false);
   const timeValue = Number(localStorage.getItem('time'));
+  const [musicVolume, setMusicVolume] = React.useState(0.3);
   
   window.addEventListener("unload", () => {
     game.setFieldLocalStorage();
@@ -24,9 +27,9 @@ function App() {
   function removeGuess(indexRow, indexColumn, value, e) {
     e.preventDefault();
     if (value === field[indexRow].solve[indexColumn]) {
-      soundPlay(`/audio/error.mp3`);
+      soundPlay(`/react-game/audio/error.mp3`);
     } else {
-      soundPlay(`/audio/correct.mp3`);
+      soundPlay(`/react-game/audio/correct.mp3`);
       game.removeGuess(indexRow, indexColumn, value);
       setField(
         field.map((item, index) => item = game.field[index])
@@ -40,9 +43,9 @@ function App() {
 
   function openCell(indexRow, indexColumn, value) {
     if (value !== field[indexRow].solve[indexColumn]) {
-      soundPlay(`/audio/error.mp3`);
+      soundPlay(`/react-game/audio/error.mp3`);
     } else {
-      soundPlay(`/audio/correct.mp3`);
+      soundPlay(`/react-game/audio/correct.mp3`);
       game.openCell(indexRow, indexColumn, value);
       setField(
         field.map((item, index) => item = game.field[index])
@@ -74,8 +77,11 @@ function App() {
 
   function soundPlay(src) {
     let audio = new Audio();
+    let volume;
+    if (localStorage.getItem('soundVolume')) volume = localStorage.getItem('soundVolume')
+    else volume = 10;
     audio.src = src;
-    audio.volume = 0.1;
+    audio.volume = volume / 100;
     audio.play();
   }
 
@@ -92,7 +98,11 @@ function App() {
     if(timePause) setTimePause(!timePause);
   }
 
-  function getNameWinner(name) {
+  function onToggleSettings() {
+    setIsSettingsOpened(!isSettingsOpened);
+  }
+
+  function setResult(name) {
     setVictory(!victory);
     newGame();
     const time = localStorage.getItem('time');
@@ -118,11 +128,31 @@ function App() {
     localStorage.setItem('score', JSON.stringify(score));
   }
 
+  function onChangeMusicVolume (volume) {
+    setMusicVolume(volume);
+    const audio = document.getElementById("music");
+    audio.volume = volume / 100;
+    localStorage.setItem('musicVolume', volume);
+  }
+
+  function switchOnMusicVolume () {
+    let volume;
+    if (localStorage.getItem('musicVolume')) volume = localStorage.getItem('musicVolume')
+    else volume = 10;
+    const audio = document.getElementById("music");
+    audio.volume = volume / 100;
+    audio.play();
+  }
+
+  document.addEventListener("DOMContentLoaded", switchOnMusicVolume);
+
   return (
-    <Context.Provider value = {{removeGuess, openCell, checkTip, newGame, pauseGame, onToggleTip, getNameWinner}}>
+    <Context.Provider value = {{removeGuess, openCell, checkTip, newGame, onToggleSettings, pauseGame, onToggleTip, setResult, onChangeMusicVolume}}>
       <div className = 'wrapper'>
         <Header reset = {timeReset} pause = {timePause} time = {timeValue}/>
-        <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory}/>
+        <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory} isSettingsOpened = {isSettingsOpened}
+        musicVolume = {musicVolume}/>
+        <Music src="/react-game/audio/backgroundMusic.mp3" volume = {musicVolume} />
         <Footer />
       </div>
     </Context.Provider>
@@ -130,3 +160,23 @@ function App() {
 }
 
 export default App;
+
+
+// 1. Создаём новый XMLHttpRequest-объект
+let xhr = new XMLHttpRequest();
+
+// 2. Настраиваем его: GET-запрос по URL /article/.../load
+xhr.open('GET', '/react-game/audio/backgroundMusic.mp3');
+
+// 3. Отсылаем запрос
+xhr.send();
+
+// 4. Этот код сработает после того, как мы получим ответ сервера
+xhr.onload = function() {
+  if (xhr.status != 200) { // анализируем HTTP-статус ответа, если статус не 200, то произошла ошибка
+    alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
+  } else { // если всё прошло гладко, выводим результат
+    alert(`Готово, получили ${xhr.response} байт`); // response -- это ответ сервера
+  }
+};
+

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './modal.module.scss';
+import styles from './modalScore.module.scss';
 
 
 export default class ModalScore extends React.Component {
@@ -15,7 +15,7 @@ export default class ModalScore extends React.Component {
       const scoreLocalStorage = JSON.parse(localStorage.getItem('score'));
       scoreLocalStorage.forEach((item, index) => score[index] = item);
     }
-    let spanRightStyle = {
+    const spanRightStyle = {
       float: 'right'
     };
     return (

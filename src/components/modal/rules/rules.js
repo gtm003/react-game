@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './modal.module.scss';
+import styles from './modalRules.module.scss';
 
 export default class ModalRules extends React.Component {
   state = {
