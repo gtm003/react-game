@@ -71,6 +71,17 @@ function App() {
     }
   }
 
+  function onToggleAllTips() {
+    game.tipsColumn.map(item => item.hidden = !item.hidden);
+    setTipsColumn(
+      tipsColumn.map((item, index) => item = game.tipsColumn[index])
+    );
+    game.tipsRow.map(item => item.hidden = !item.hidden);
+    setTipsRow (
+      tipsRow.map((item, index) => item = game.tipsRow[index])
+    );
+  }
+
   function checkTip(tip) {
     game.checkTip(tip);
   }
@@ -147,10 +158,12 @@ function App() {
   document.addEventListener("click", switchOnMusicVolume);
 
   return (
-    <Context.Provider value = {{removeGuess, openCell, checkTip, newGame, onToggleSettings, pauseGame, onToggleTip, setResult, onChangeMusicVolume}}>
+    <Context.Provider value = {{removeGuess, openCell, checkTip, newGame, onToggleSettings, pauseGame, onToggleTip,
+      onToggleAllTips, setResult, onChangeMusicVolume}}>
       <div className = 'wrapper'>
         <Header reset = {timeReset} pause = {timePause} time = {timeValue}/>
-        <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory} isSettingsOpened = {isSettingsOpened}
+        <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory}
+          isSettingsOpened = {isSettingsOpened}
         musicVolume = {musicVolume}/>
         <Music src="/audio/backgroundMusic.mp3" volume = {musicVolume} />
         <Footer />

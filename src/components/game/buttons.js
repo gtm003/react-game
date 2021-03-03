@@ -8,7 +8,7 @@ import styles from './buttons.module.scss'
 export default function Buttons() {
   const { newGame } = useContext(Context);
   const { onToggleSettings } = useContext(Context);
-  //const {onToggleTip} = useContext(Context);
+  const {onToggleAllTips} = useContext(Context);
   const { pauseGame } = useContext(Context);
   return (
     <div className={styles.buttons}>
@@ -21,7 +21,7 @@ export default function Buttons() {
         Пауза
       </button>
       <button
-        onClick = {() => pauseGame()}>
+        onClick = {() => onToggleAllTips()}>
         Скрытые             
       </button>
       <button
