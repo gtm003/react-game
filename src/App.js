@@ -27,9 +27,9 @@ function App() {
   function removeGuess(indexRow, indexColumn, value, e) {
     e.preventDefault();
     if (value === field[indexRow].solve[indexColumn]) {
-      soundPlay(`/react-game/audio/error.mp3`);
+      soundPlay(`/audio/error.mp3`);
     } else {
-      soundPlay(`/react-game/audio/correct.mp3`);
+      soundPlay(`/audio/correct.mp3`);
       game.removeGuess(indexRow, indexColumn, value);
       setField(
         field.map((item, index) => item = game.field[index])
@@ -43,9 +43,9 @@ function App() {
 
   function openCell(indexRow, indexColumn, value) {
     if (value !== field[indexRow].solve[indexColumn]) {
-      soundPlay(`/react-game/audio/error.mp3`);
+      soundPlay(`/audio/error.mp3`);
     } else {
-      soundPlay(`/react-game/audio/correct.mp3`);
+      soundPlay(`/audio/correct.mp3`);
       game.openCell(indexRow, indexColumn, value);
       setField(
         field.map((item, index) => item = game.field[index])
@@ -152,7 +152,7 @@ function App() {
         <Header reset = {timeReset} pause = {timePause} time = {timeValue}/>
         <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory} isSettingsOpened = {isSettingsOpened}
         musicVolume = {musicVolume}/>
-        <Music src="/react-game/audio/backgroundMusic.mp3" volume = {musicVolume} />
+        <Music src="/audio/backgroundMusic.mp3" volume = {musicVolume} />
         <Footer />
       </div>
     </Context.Provider>
@@ -161,7 +161,7 @@ function App() {
 
 export default App;
 
-
+/*
 // 1. Создаём новый XMLHttpRequest-объект
 let xhr = new XMLHttpRequest();
 
@@ -179,4 +179,4 @@ xhr.onload = function() {
     alert(`Готово, получили ${xhr.response} байт`); // response -- это ответ сервера
   }
 };
-
+*/
