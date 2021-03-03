@@ -12,6 +12,9 @@ export default function ModalSettings(props) {
   function soundVolume() {
     return localStorage.getItem('soundVolume') ? localStorage.getItem('soundVolume') : 10;
   }
+  function difficulty() {
+    return localStorage.getItem('difficulty') ? localStorage.getItem('difficulty') : 0;
+  }
   const rightStyle = {
     float: 'right'
   };  
@@ -22,7 +25,10 @@ export default function ModalSettings(props) {
         <h3>Настройки</h3>
         <div>
           <span>Уровень сложности</span>
-          <select style = {rightStyle} defaultValue = '1' onChange={(event)=>console.log(`Hard: ${event.target.value}`)}>
+          <select style = {rightStyle} defaultValue = {difficulty} onChange={(event) => {
+            console.log(`Hard: ${event.target.value}`);
+            localStorage.setItem('difficulty', event.target.value)
+            }}>
             <option value="0">сложный</option>
             <option value="1">средний</option>
             <option value="2">простой</option>

@@ -106,6 +106,21 @@ export class GameModel {
     this.checkSingleGuess(indexRow);
   }
 
+  openRandomCells(quantity) {
+    let set = new Set();
+    while (set.size < quantity) {
+      set.add([getRandomInteger(0,5), getRandomInteger(0,5)]);
+    }
+    const arr = new Array(...set);
+    arr.forEach(item => {
+      const indexRow = item[0];
+      const indexColumn = item[1];
+      const row = this.field[indexRow];
+      const value = row.solve[indexColumn];
+      this.openCell(indexRow, indexColumn, value);
+    })
+  }
+
   isNewOpened(indexRow) {
     const row = this.field[indexRow];
     const guessColumnNotOpened = row.guessColumn.filter((item, index) => !row.opened[index]);

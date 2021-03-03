@@ -103,6 +103,8 @@ function App() {
 
   function newGame() {
     game = new GameModel(6, false);
+    const difficulty = localStorage.getItem('difficulty');
+    game.openRandomCells(difficulty);
     setField(game.field);
     setTipsRow(game.tipsRow);
     setTipsColumn(game.tipsColumn);
@@ -118,9 +120,10 @@ function App() {
     setVictory(!victory);
     newGame();
     const time = localStorage.getItem('time');
+    const difficulty = localStorage.getItem('difficulty');
     let score;
-    if (localStorage.getItem('score')) {
-      score = JSON.parse(localStorage.getItem('score'));
+    if (localStorage.getItem(`score${difficulty}`)) {
+      score = JSON.parse(localStorage.getItem(`score${difficulty}`));
       score.push([name, time]);
     }
     else score = [[name, time]];
@@ -137,7 +140,7 @@ function App() {
       return arrSort;
     }
     score = sortArr(score).slice(0,9);
-    localStorage.setItem('score', JSON.stringify(score));
+    localStorage.setItem(`score${difficulty}`, JSON.stringify(score));
   }
 
   function onChangeMusicVolume (volume) {

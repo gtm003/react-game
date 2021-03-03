@@ -9,11 +9,20 @@ export default class ModalScore extends React.Component {
   }
     
   render() {
-    const score = new Array(10).fill(['', '']);
-
-    if (localStorage.getItem('score')) {
-      const scoreLocalStorage = JSON.parse(localStorage.getItem('score'));
-      scoreLocalStorage.forEach((item, index) => score[index] = item);
+    const score0 = new Array(10).fill(['', '']);
+    if (localStorage.getItem('score0')) {
+      const scoreLocalStorage = JSON.parse(localStorage.getItem('score0'));
+      scoreLocalStorage.forEach((item, index) => score0[index] = item);
+    }
+    const score1 = new Array(10).fill(['', '']);
+    if (localStorage.getItem('score1')) {
+      const scoreLocalStorage = JSON.parse(localStorage.getItem('score1'));
+      scoreLocalStorage.forEach((item, index) => score1[index] = item);
+    }
+    const score2 = new Array(10).fill(['', '']);
+    if (localStorage.getItem('score2')) {
+      const scoreLocalStorage = JSON.parse(localStorage.getItem('score2'));
+      scoreLocalStorage.forEach((item, index) => score2[index] = item);
     }
     const spanRightStyle = {
       float: 'right'
@@ -29,7 +38,7 @@ export default class ModalScore extends React.Component {
             <h2>Сложность игры: сложная</h2>
             <ol>
               {
-                score.map((item, index) => {
+                score0.map((item, index) => {
                   return (
                     <li key = {index}><span>{item[0]}</span><span style = {spanRightStyle}>{FormattedTime(item[1])}</span></li>
                   )
@@ -38,15 +47,32 @@ export default class ModalScore extends React.Component {
             </ol>
 
           </div>)}
-
           {this.state.index === 1 && (<div className = {styles.page}>
-            <h3>Доска почета</h3>
-
+            <h1>Доска почета</h1>
+            <h2>Сложность игры: средняя</h2>
+            <ol>
+              {
+                score2.map((item, index) => {
+                  return (
+                    <li key = {index}><span>{item[0]}</span><span style = {spanRightStyle}>{FormattedTime(item[1])}</span></li>
+                  )
+                })
+              }
+            </ol>
           </div>)}
 
           {this.state.index === 2 && (<div className = {styles.page}>
-            <h3>Доска почета</h3>
-
+            <h1>Доска почета</h1>
+            <h2>Сложность игры: простая</h2>
+            <ol>
+              {
+                score2.map((item, index) => {
+                  return (
+                    <li key = {index}><span>{item[0]}</span><span style = {spanRightStyle}>{FormattedTime(item[1])}</span></li>
+                  )
+                })
+              }
+            </ol>
           </div>)}
 
           <div className = {styles.slaiderBtn}>
