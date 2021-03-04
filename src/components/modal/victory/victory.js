@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import Context from '../../context';
+import Context from '../../../context';
 import styles from './victory.module.scss'
 //import RowContent from './rowComponent';
 
@@ -12,7 +12,11 @@ export default function Victory(props) {
         <h3>ПОЗДРАВЛЯЮ! ВЫ ВЫЙГРАЛИ!!!</h3>
         <p>
           <span>Введите ваше имя: </span>
-          <input type="text" onBlur = {(event) => setResult(event.target.value)}></input>
+          <input type="text" onBlur = {(event) => setResult(event.target.value)} 
+            onKeyPress = {(event) => {
+              console.log(event.key);
+              if (event.key === "Enter") setResult(event.target.value);
+            }}/>
         </p>
       </div>
     </div>)}

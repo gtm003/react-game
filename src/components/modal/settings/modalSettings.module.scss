@@ -8,11 +8,14 @@
   display: flex;
   justify-content: center;
   padding-top: 10rem;
-  padding-bottom: 10rem;
+  padding-bottom: 8rem;
   & .modalBody {
+    & h3 {
+      margin-left: 25%;
+    }
     position: relative;
     padding: 2rem;
-    width: 20rem;
+    width: 22rem;
     border-radius: 5px;
     background: rgb(209, 198, 198);
     display: flex;
@@ -104,3 +107,6 @@ select {
   } 
 }
 
+span {
+  margin-left: 5%;
+}

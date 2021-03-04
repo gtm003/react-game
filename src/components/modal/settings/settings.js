@@ -6,6 +6,9 @@ import styles from './modalSettings.module.scss'
 export default function ModalSettings(props) {
   const { onToggleSettings } = useContext(Context);
   const { onChangeMusicVolume } = useContext(Context);
+  const { onChangeUnDo } = useContext(Context);
+  const { newGame } = useContext(Context);
+  //const { onChangeMusicVolume } = useContext(Context);
   function musicVolume() {
     return localStorage.getItem('musicVolume') ? localStorage.getItem('musicVolume') : 10;
   }
@@ -25,7 +28,7 @@ export default function ModalSettings(props) {
         <h3>Настройки</h3>
         <div>
           <span>Уровень сложности</span>
-          <select style = {rightStyle} defaultValue = {difficulty} onChange={(event) => {
+          <select style = {rightStyle} defaultValue = {difficulty()} onChange={(event) => {
             console.log(`Hard: ${event.target.value}`);
             localStorage.setItem('difficulty', event.target.value)
             }}>
@@ -45,17 +48,22 @@ export default function ModalSettings(props) {
             onChange={(event) => localStorage.setItem('soundVolume', event.target.value)}/>
         </div>
         <div>
-          <input type='checkbox'></input>
-          <span>Отмена хода</span>
+          <input type='checkbox' onChange={(event) => {
+            console.log(event.target.checked);
+            onChangeUnDo(event.target.checked);
+            }} />
+          <span>Право на ошибку</span>
         </div>
-        <div>
-          <input type='checkbox'></input>
-          <span>Проверить подсказку</span>
-        </div>
+        <p>
+            Но знайте, каждая ошибка прибавляет к вашему времени штраф в 30 секунд!
+        </p>
 
         <button
           className = {styles.close}
-          onClick = {onToggleSettings.bind(null)}>&#10006;</button>
+          onClick = {() => {
+            onToggleSettings();
+            newGame()
+            }}>&#10006;</button>
       </div>
     </div>)}
   </React.Fragment>

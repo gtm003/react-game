@@ -8,7 +8,7 @@ function FormattedTime(props) {
   function addZero(n) {
     return (parseInt(n, 10) < 10 ? '0' : '') + n;
   }
-  return <h2>{`${addZero(hour)}:${addZero(min)}:${addZero(sec)}`}</h2>;
+  return <h3>{`Время: ${addZero(hour)}:${addZero(min)}:${addZero(sec)}`}</h3>;
 }
 
 class Timer extends React.Component {
@@ -17,7 +17,8 @@ class Timer extends React.Component {
     this.state = {
       reset: props.reset,
       pause: props.pause,
-      time: props.time
+      time: props.time,
+      error: props.error,
     };
   }
   
@@ -52,6 +53,12 @@ class Timer extends React.Component {
         return {time: 0}
       })
     }
+    if (this.props.error !== prevProps.error) {
+      this.setState((state) => {
+        return {time: this.state.time += 30}
+      })
+    }
+
   }
 
   render() {
@@ -66,8 +73,9 @@ class Timer extends React.Component {
 export default function Header(props) {
   return (
     <div className={styles.header}>
-      <h1 style = {styles.h1}>Головоломка Эйнштейна</h1>
-      <Timer time = {props.time} reset = {props.reset} pause = {props.pause}/>
+      <h2 style = {styles.h2}>Головоломка Эйнштейна</h2>
+      <h3>{`Ошибки: ${props.error}`}</h3>
+      <Timer time = {props.time} reset = {props.reset} pause = {props.pause} error = {props.error}/>
     </div>
   )
 }

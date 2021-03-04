@@ -5,7 +5,7 @@ import styles from './modalScore.module.scss';
 export default class ModalScore extends React.Component {
   state = {
     isOpen: false,
-    index: 0
+    index: Number(localStorage.getItem('difficulty'))
   }
     
   render() {
@@ -52,7 +52,7 @@ export default class ModalScore extends React.Component {
             <h2>Сложность игры: средняя</h2>
             <ol>
               {
-                score2.map((item, index) => {
+                score1.map((item, index) => {
                   return (
                     <li key = {index}><span>{item[0]}</span><span style = {spanRightStyle}>{FormattedTime(item[1])}</span></li>
                   )

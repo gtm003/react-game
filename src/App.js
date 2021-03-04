@@ -7,14 +7,17 @@ import { GameModel } from './model/gameModel';
 import Music from './components/audio/music';
 
 let game = new GameModel(6, true);
+let unDo = false;
 
 function App() {
   const [field, setField] = React.useState(game.field);
   const [tipsRow, setTipsRow] = React.useState(game.tipsRow);
   const [tipsColumn, setTipsColumn] = React.useState(game.tipsColumn);
   const [victory, setVictory] = React.useState(false);
+  const [defeat, setDefeat] = React.useState(false);
   const [timeReset, setTimeReset] = React.useState(true);
   const [timePause, setTimePause] = React.useState(false);
+  const [error, setError] = React.useState(0);
   const [isSettingsOpened, setIsSettingsOpened] = React.useState(false);
   const timeValue = Number(localStorage.getItem('time'));
   const [musicVolume, setMusicVolume] = React.useState(0.3);
@@ -44,6 +47,11 @@ function App() {
   function openCell(indexRow, indexColumn, value) {
     if (value !== field[indexRow].solve[indexColumn]) {
       soundPlay(`/audio/error.mp3`);
+      if (unDo) {
+        setError(error + 1);
+      } else {
+        setDefeat(!defeat);
+      }
     } else {
       soundPlay(`/audio/correct.mp3`);
       game.openCell(indexRow, indexColumn, value);
@@ -108,6 +116,7 @@ function App() {
     setField(game.field);
     setTipsRow(game.tipsRow);
     setTipsColumn(game.tipsColumn);
+    setError(0);
     setTimeReset(!timeReset);
     if(timePause) setTimePause(!timePause);
   }
@@ -159,16 +168,23 @@ function App() {
     audio.play();
   }
 
-  document.addEventListener("click", switchOnMusicVolume);
+  function onChangeUnDo (value) {
+    unDo = value;
+    console.log(unDo);
+  }
 
+  function onToggleDefeat () {
+    setDefeat(!defeat);
+    newGame();
+  }
+  document.addEventListener("click", switchOnMusicVolume);
   return (
     <Context.Provider value = {{removeGuess, openCell, checkTip, newGame, onToggleSettings, pauseGame, onToggleTip,
-      onToggleAllTips, setResult, onChangeMusicVolume}}>
+      onToggleAllTips, setResult, onChangeMusicVolume, onChangeUnDo, onToggleDefeat}}>
       <div className = 'wrapper'>
-        <Header reset = {timeReset} pause = {timePause} time = {timeValue}/>
-        <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory}
-          isSettingsOpened = {isSettingsOpened}
-        musicVolume = {musicVolume}/>
+        <Header reset = {timeReset} pause = {timePause} time = {timeValue} error = {error}/>
+        <GameComponent tipsRow = {tipsRow} tipsColumn = {tipsColumn} field = {field} victory = {victory} defeat = {defeat}
+          isSettingsOpened = {isSettingsOpened} musicVolume = {musicVolume} />
         <Music src="/audio/backgroundMusic.mp3" volume = {musicVolume} />
         <Footer />
       </div>
@@ -177,23 +193,3 @@ function App() {
 }
 
 export default App;
-
-/*
-// 1. Создаём новый XMLHttpRequest-объект
-let xhr = new XMLHttpRequest();
-
-// 2. Настраиваем его: GET-запрос по URL /article/.../load
-xhr.open('GET', '/react-game/audio/backgroundMusic.mp3');
-
-// 3. Отсылаем запрос
-xhr.send();
-
-// 4. Этот код сработает после того, как мы получим ответ сервера
-xhr.onload = function() {
-  if (xhr.status != 200) { // анализируем HTTP-статус ответа, если статус не 200, то произошла ошибка
-    alert(`Ошибка ${xhr.status}: ${xhr.statusText}`); // Например, 404: Not Found
-  } else { // если всё прошло гладко, выводим результат
-    alert(`Готово, получили ${xhr.response} байт`); // response -- это ответ сервера
-  }
-};
-*/
