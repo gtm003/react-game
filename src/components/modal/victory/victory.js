@@ -9,7 +9,7 @@ export default function Victory(props) {
     <React.Fragment>
     {props.victory && (<div className={styles.victory}>
       <div className={styles.victoryBody}>
-        <h3>ПОЗДРАВЛЯЮ! ВЫ ВЫЙГРАЛИ!!!</h3>
+        <h3>ПОЗДРАВЛЯЮ! ВЫ ВЫИГРАЛИ!!!</h3>
         <p>
           <span>Введите ваше имя: </span>
           <input type="text" onBlur = {(event) => setResult(event.target.value)} 

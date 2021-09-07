@@ -13,11 +13,6 @@ export default function Footer() {
       img: '',
       href: 'https://docs.rs.school/#/',
     },
-    {
-      logo: 'youtube',
-      img: '',
-      href: 'https://www.youtube.com/watch?v=URZZvo_f2x4',
-    }
   ];
   return (
     <div className={styles.footer}>

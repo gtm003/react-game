@@ -111,7 +111,7 @@ function App() {
 
   function newGame() {
     game = new GameModel(6, false);
-    const difficulty = localStorage.getItem('difficulty');
+    const difficulty = Number(localStorage.getItem('difficulty'));
     game.openRandomCells(difficulty);
     setField(game.field);
     setTipsRow(game.tipsRow);
@@ -129,7 +129,7 @@ function App() {
     setVictory(!victory);
     newGame();
     const time = localStorage.getItem('time');
-    const difficulty = localStorage.getItem('difficulty');
+    const difficulty = Number(localStorage.getItem('difficulty'));
     let score;
     if (localStorage.getItem(`score${difficulty}`)) {
       score = JSON.parse(localStorage.getItem(`score${difficulty}`));
