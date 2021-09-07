@@ -1,0 +1,36 @@
+.footer {
+  background-color: rgba(0, 255, 255, 0.3);
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  align-items: center;
+  margin: 0;
+  & .bg {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background: rgb(198, 229, 240);
+    border: rgb(95, 74, 189) solid 1px;
+    &:hover {
+      background: rgb(221, 241, 132);
+    }
+  }
+  & .gtm003 {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url('../../assets/github.svg') 100%/contain no-repeat;
+  }
+  & .RSSchool {
+    display: block;
+    width: 60px;
+    height: 40px;
+    background: url('../../assets/rs_logo.svg') 100%/contain no-repeat;
+  }
+  & .youtube {
+    display: block;
+    width: 90px;
+    height: 40px;
+    background: url('../../assets/youtube.svg') 100%/contain no-repeat;
+  }
+}

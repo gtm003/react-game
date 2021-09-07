@@ -1,0 +1,11 @@
+.header {
+  background-color: rgba(0, 255, 255, 0.3);
+  color: yellow;
+  text-shadow: -1px -1px 1px rgb(189, 209, 192), 
+	2px 2px 1px rgb(4, 26, 1);
+  display: flex;
+  justify-content: space-around;
+  height: 50px;
+  align-items: center;
+  letter-spacing: 0.1rem;
+}
