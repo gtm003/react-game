@@ -1,4 +1,4 @@
-# [Einstein's puzzle](https://gtm003.github.io/react-game/).
+# [Einstein's puzzle](https://gtm003.github.io/react-game/)
 
 This is an individual project, the first assignment from the React course from RS School. In this project, a rather complex game logic has been implemented. The terms of reference can be viewed [here](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/react/react-game.md).
 
