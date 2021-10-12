@@ -1,47 +1,41 @@
-# [Einstein's puzzle](https://gtm003.github.io/react-game/).
+# [Einstein's puzzle](https://gtm003.github.io/react-game/)
 
-This is an individual project, the first assignment from the React course from RS School. In this project, a rather complex game logic has been implemented. The terms of reference can be viewed [here](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/react/react-game.md).
+## Немного об игре и истории создания:
+
+Это индивидульный проект - первое задание с учебного курса по библиотеке React от RS School. С техническим заданием можно ознакомиться [здесь](https://github.com/rolling-scopes-school/tasks/blob/master/tasks/react/react-game.md).
+
+Головоломка Энштейна - это сложная и интересная логическая игра. Прототипом игры послужила [десктопная одноименная игра Einstein](https://igrozoom.ru/logicheskie/100835-2008-9-29-835.html). Как написано в описании к оргинальной игре:
+> Einstein - это логическая головоломка написанная по мотивам старой досовской игры Sherlock, которая в свою очередь была написана по мотивам загадки Эйнштейна. Эйнштейн утверждал что только 2% людей обладают интеллектом достаточным длEinstein или  решения. Цель игры - узнать расположение всех фишек, пользуясь подсказками и логикой.
+
+Загадка Эйнштейна, на мой взгляд, гораздо известнее чем игра Einstein или Sherlock, но я все же напомню условие (условие сознательно приведено на английском, по скольку перевод содержит неточности. Более подробно - [здесь](https://ru.wikipedia.org/wiki/%D0%97%D0%B0%D0%B3%D0%B0%D0%B4%D0%BA%D0%B0_%D0%AD%D0%B9%D0%BD%D1%88%D1%82%D0%B5%D0%B9%D0%BD%D0%B0)
+
+> #### Загадка Эйнштейна
+> 1. There are five houses.
+> 1. The Englishman lives in the red house.
+> 1. The Spaniard owns the dog.
+> 1. Coffee is drunk in the green house.
+> 1. The Ukrainian drinks tea.
+> 1. The green house is immediately to the right of the ivory house.
+> 1. The Old Gold smoker owns snails.
+> 1. Kools are smoked in the yellow house.
+> 1. Milk is drunk in the middle house.
+> 1. The Norwegian lives in the first house.
+> 1. The man who smokes Chesterfields lives in the house next to the man with the fox.
+> 1. Kools are smoked in the house next to the house where the horse is kept.
+> 1. The Lucky Strike smoker drinks orange juice.
+> 1. The Japanese smokes Parliaments.
+> 1. The Norwegian lives next to the blue house.
+> 
+> Now, who drinks water? Who owns the zebra?
+> In the interest of clarity, it must be added that each of the five houses is painted a different color, and their inhabitants are of different national extractions, own different pets, drink different beverages and smoke different brands of American cigarets. One other thing: in statement 6, right means your right.
+
+В разделе "правила игры" можно ознакомится с правилами (логично :smiley:), он полностью продублирован с оригинала. Если проводить аналогию с загадкой, то список утверждений и есть подсказки в правой части игрового поля, только оформленные графически. В настройки игры внесены некоторые изменения связанные с требованиями ТЗ.
 
 ![react-game](public/images/react-game.gif)
 
 
-## Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-### Available Scripts
-
-In the project directory, you can run:
-
-#### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-#### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-#### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-#### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Технологии используемые в разработке:
+* использована библиотека React
+* для стилизации использован препроцессор SASS
+* последнее состояние игры и всех ее настроек сохраняется на клиенте в localStorage
+* в разработке архитектуры приложения опирались на паттерн проектирования MVC 
